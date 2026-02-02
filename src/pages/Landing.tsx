@@ -31,7 +31,7 @@ const Landing: React.FC = () => {
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString(),
           });
-          
+
           setLinks([
             {
               id: 'demo1',
@@ -79,22 +79,24 @@ const Landing: React.FC = () => {
 
         // For demo purposes, we'll fetch the first profile
         // In production, this would be based on a username or custom domain
-        const { data: profileData } = await supabase
+        const { data: profileData, error } = await supabase
           .from('profiles')
           .select('*')
           .limit(1)
           .single();
 
+        if (error) throw error;
+
         if (profileData) {
           setProfile(profileData);
-          
+
           const { data: linksData } = await supabase
             .from('social_links')
             .select('*')
             .eq('user_id', profileData.user_id)
             .eq('is_active', true)
             .order('order_index', { ascending: true });
-          
+
           setLinks(linksData || []);
         }
       } catch (error) {
@@ -153,7 +155,7 @@ const Landing: React.FC = () => {
   return (
     <div className="min-h-screen relative overflow-x-hidden">
       <BackgroundEffects />
-      
+
       {/* Setup Banner - Show when Supabase not configured */}
       {isDemo && (
         <motion.div
@@ -162,12 +164,12 @@ const Landing: React.FC = () => {
           className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-cyan-glow to-teal-accent text-navy-base p-3 text-center"
         >
           <p className="text-sm font-semibold">
-            🚀 Demo Mode - Set up Supabase to create your own link hub! 
+            🚀 Demo Mode - Set up Supabase to create your own link hub!
             <a href="#setup" className="underline ml-2">Setup Guide</a>
           </p>
         </motion.div>
       )}
-      
+
       {/* Navigation - Mobile Optimized */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
@@ -206,7 +208,7 @@ const Landing: React.FC = () => {
                 <SocialLinkCard key={link.id} link={link} index={index} />
               ))}
             </div>
-            
+
             {/* Tablet & Desktop: Grid layout */}
             <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {links.map((link, index) => (
@@ -224,18 +226,18 @@ const Landing: React.FC = () => {
           >
             {/* Background accent */}
             <div className="absolute -right-20 -top-20 w-64 h-64 bg-cyan-glow/10 rounded-full blur-[80px]" />
-            
+
             <div className="flex flex-col gap-6 md:gap-8 relative z-10">
               <div className="text-center md:text-left">
                 <h2 className="text-white text-2xl md:text-3xl font-bold tracking-tight mb-3 md:mb-2">
                   Let's build something extraordinary.
                 </h2>
                 <p className="text-gray-cool text-sm md:text-base leading-relaxed max-w-xl mx-auto md:mx-0">
-                  Currently accepting new projects and consulting opportunities. 
+                  Currently accepting new projects and consulting opportunities.
                   Reach out for a free discovery session.
                 </p>
               </div>
-              
+
               {/* Mobile: Stacked buttons, Desktop: Side by side */}
               <div className="flex flex-col md:flex-row gap-3 md:gap-4">
                 <Button className="w-full md:w-auto md:min-w-[160px] justify-center">
