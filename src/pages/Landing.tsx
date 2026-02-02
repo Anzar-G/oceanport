@@ -16,6 +16,67 @@ const Landing: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // Check if Supabase is configured
+        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+        if (!supabaseUrl || supabaseUrl.includes('placeholder')) {
+          // Show demo data when Supabase isn't configured
+          setProfile({
+            id: 'demo',
+            user_id: 'demo',
+            full_name: 'Demo User',
+            bio: 'This is a demo profile. Set up Supabase to create your own!',
+            tagline: 'Demo Mode',
+            avatar_url: null,
+            location: 'Demo Land',
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+          });
+          
+          setLinks([
+            {
+              id: 'demo1',
+              user_id: 'demo',
+              platform: 'github',
+              label: 'GitHub Profile',
+              url: 'https://github.com',
+              username: 'demo',
+              icon_name: 'github',
+              is_active: true,
+              order_index: 0,
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString(),
+            },
+            {
+              id: 'demo2',
+              user_id: 'demo',
+              platform: 'linkedin',
+              label: 'LinkedIn',
+              url: 'https://linkedin.com',
+              username: 'demo',
+              icon_name: 'linkedin',
+              is_active: true,
+              order_index: 1,
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString(),
+            },
+            {
+              id: 'demo3',
+              user_id: 'demo',
+              platform: 'email',
+              label: 'Email Me',
+              url: 'mailto:demo@example.com',
+              username: null,
+              icon_name: 'email',
+              is_active: true,
+              order_index: 2,
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString(),
+            },
+          ]);
+          setLoading(false);
+          return;
+        }
+
         // For demo purposes, we'll fetch the first profile
         // In production, this would be based on a username or custom domain
         const { data: profileData } = await supabase
@@ -38,6 +99,19 @@ const Landing: React.FC = () => {
         }
       } catch (error) {
         console.error('Error fetching data:', error);
+        // Show demo data on error
+        setProfile({
+          id: 'demo',
+          user_id: 'demo',
+          full_name: 'Demo User',
+          bio: 'Set up Supabase to create your own profile!',
+          tagline: 'Demo Mode',
+          avatar_url: null,
+          location: null,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+        });
+        setLinks([]);
       } finally {
         setLoading(false);
       }
@@ -74,15 +148,31 @@ const Landing: React.FC = () => {
     );
   }
 
+  const isDemo = !import.meta.env.VITE_SUPABASE_URL || import.meta.env.VITE_SUPABASE_URL.includes('placeholder');
+
   return (
     <div className="min-h-screen relative overflow-x-hidden">
       <BackgroundEffects />
+      
+      {/* Setup Banner - Show when Supabase not configured */}
+      {isDemo && (
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-cyan-glow to-teal-accent text-navy-base p-3 text-center"
+        >
+          <p className="text-sm font-semibold">
+            🚀 Demo Mode - Set up Supabase to create your own link hub! 
+            <a href="#setup" className="underline ml-2">Setup Guide</a>
+          </p>
+        </motion.div>
+      )}
       
       {/* Navigation - Mobile Optimized */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full flex justify-center py-4 md:py-6 px-4"
+        className={`w-full flex justify-center py-4 md:py-6 px-4 ${isDemo ? 'pt-16 md:pt-20' : ''}`}
       >
         <div className="glass-card rounded-xl px-4 md:px-6 py-3 flex items-center justify-between w-full max-w-4xl">
           <div className="flex items-center gap-3">
