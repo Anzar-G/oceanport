@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { SocialLink } from '@/types';
 import { getSocialIcon, getPlatformColor } from '@/lib/utils';
 import { ArrowRight, ExternalLink } from 'lucide-react';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 interface SocialLinkCardProps {
   link: SocialLink;
@@ -9,14 +10,23 @@ interface SocialLinkCardProps {
 }
 
 export const SocialLinkCard: React.FC<SocialLinkCardProps> = ({ link, index }) => {
+  const { trackClick } = useAnalytics();
   const Icon = getSocialIcon(link.platform);
   const platformColor = getPlatformColor(link.platform);
+
+  const handleClick = () => {
+    trackClick(link.user_id, link.id, {
+      url: link.url,
+      platform: link.platform
+    });
+  };
 
   return (
     <motion.a
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleClick}
       initial={{ opacity: 0, y: 20, rotateX: -10 }}
       animate={{ opacity: 1, y: 0, rotateX: 0 }}
       transition={{
@@ -44,13 +54,14 @@ export const SocialLinkCard: React.FC<SocialLinkCardProps> = ({ link, index }) =
             transition={{ duration: 0.2 }}
             className="flex-shrink-0 relative"
           >
-            <div 
+            <div
               className="w-12 h-12 md:w-10 md:h-10 rounded-xl flex items-center justify-center"
               style={{ backgroundColor: `${platformColor}20` }}
             >
-              <Icon 
-                className="w-6 h-6 md:w-5 md:h-5 transition-colors duration-200" 
-                style={{ color: platformColor }} 
+              <Icon
+                className="w-6 h-6 md:w-5 md:h-5 transition-colors duration-200"
+                /* eslint-disable-next-line react/no-unknown-property */
+                style={{ color: platformColor }}
               />
             </div>
             {/* Mobile: Add small external link indicator */}
@@ -58,7 +69,7 @@ export const SocialLinkCard: React.FC<SocialLinkCardProps> = ({ link, index }) =
               <ExternalLink className="w-2 h-2 text-cyan-glow" />
             </div>
           </motion.div>
-          
+
           {/* Content */}
           <div className="flex-1 min-w-0">
             <h3 className="font-semibold text-white text-lg md:text-lg group-hover:text-cyan-glow transition-colors">
@@ -72,7 +83,7 @@ export const SocialLinkCard: React.FC<SocialLinkCardProps> = ({ link, index }) =
               {link.platform}
             </p>
           </div>
-          
+
           {/* Arrow - Hidden on mobile, shown on desktop */}
           <motion.div
             initial={{ x: 0, opacity: 0.6 }}
@@ -84,18 +95,20 @@ export const SocialLinkCard: React.FC<SocialLinkCardProps> = ({ link, index }) =
           </motion.div>
         </div>
       </div>
-      
+
       {/* Hover glow effect */}
       <div
         className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+        /* eslint-disable-next-line react/no-unknown-property */
         style={{
           background: `radial-gradient(circle at center, ${platformColor}15 0%, transparent 70%)`,
         }}
       />
-      
+
       {/* Mobile: Bottom accent line */}
-      <div 
+      <div
         className="md:hidden absolute bottom-0 left-0 right-0 h-1 opacity-60 group-hover:opacity-100 transition-opacity"
+        /* eslint-disable-next-line react/no-unknown-property */
         style={{ backgroundColor: platformColor }}
       />
     </motion.a>

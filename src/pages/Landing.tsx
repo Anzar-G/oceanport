@@ -7,8 +7,10 @@ import { Button } from '@/components/ui/Button';
 import { supabase } from '@/lib/supabase';
 import { Profile, SocialLink } from '@/types';
 import { Network, Mail, Download } from 'lucide-react';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 const Landing: React.FC = () => {
+  const { trackView } = useAnalytics();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [links, setLinks] = useState<SocialLink[]>([]);
   const [loading, setLoading] = useState(true);
@@ -88,6 +90,11 @@ const Landing: React.FC = () => {
         if (error) throw error;
 
         if (profileData) {
+          try {
+            trackView(profileData.user_id);
+          } catch (e) {
+            console.error('Track view failed', e);
+          }
           setProfile(profileData);
 
           const { data: linksData } = await supabase

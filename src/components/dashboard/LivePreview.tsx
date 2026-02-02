@@ -43,25 +43,25 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ userId }) => {
             <div className="w-2 h-2 bg-teal-accent rounded-full animate-pulse" />
             <h3 className="text-lg font-semibold text-white">Live Preview</h3>
           </div>
-          
+
           <div className="flex gap-2">
             <button
               onClick={() => setViewMode('desktop')}
-              className={`p-2 rounded-lg transition-colors ${
-                viewMode === 'desktop'
-                  ? 'bg-cyan-glow/20 text-cyan-glow'
-                  : 'text-gray-cool hover:bg-white/5'
-              }`}
+              aria-label="Desktop view"
+              className={`p-2 rounded-lg transition-colors ${viewMode === 'desktop'
+                ? 'bg-cyan-glow/20 text-cyan-glow'
+                : 'text-gray-cool hover:bg-white/5'
+                }`}
             >
               <Monitor className="w-4 h-4" />
             </button>
             <button
               onClick={() => setViewMode('mobile')}
-              className={`p-2 rounded-lg transition-colors ${
-                viewMode === 'mobile'
-                  ? 'bg-cyan-glow/20 text-cyan-glow'
-                  : 'text-gray-cool hover:bg-white/5'
-              }`}
+              aria-label="Mobile view"
+              className={`p-2 rounded-lg transition-colors ${viewMode === 'mobile'
+                ? 'bg-cyan-glow/20 text-cyan-glow'
+                : 'text-gray-cool hover:bg-white/5'
+                }`}
             >
               <Smartphone className="w-4 h-4" />
             </button>
@@ -69,14 +69,8 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ userId }) => {
         </div>
 
         <div
-          className={`bg-navy-base rounded-lg overflow-auto transition-all ${
-            viewMode === 'mobile' ? 'max-w-[300px] mx-auto' : 'w-full'
-          }`}
-          style={{
-            maxHeight: '70vh',
-            transform: 'scale(0.6)',
-            transformOrigin: 'top center',
-          }}
+          className={`bg-navy-base rounded-lg overflow-auto transition-all max-h-[70vh] scale-[0.6] origin-top ${viewMode === 'mobile' ? 'max-w-[300px] mx-auto' : 'w-full'
+            }`}
         >
           <div className="p-8 space-y-6 min-h-[600px]">
             {/* Profile Preview */}
@@ -98,23 +92,23 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ userId }) => {
                       </div>
                     )}
                   </div>
-                  
+
                   <h1 className="text-2xl font-bold text-gradient mb-2">
                     {profile.full_name}
                   </h1>
-                  
+
                   {profile.tagline && (
                     <p className="text-teal-accent text-sm font-medium uppercase tracking-wide mb-2">
                       {profile.tagline}
                     </p>
                   )}
-                  
+
                   {profile.bio && (
                     <p className="text-gray-cool/80 text-sm leading-relaxed mb-2">
                       {profile.bio}
                     </p>
                   )}
-                  
+
                   {profile.location && (
                     <p className="text-gray-cool/60 text-xs">
                       📍 {profile.location}
@@ -125,9 +119,8 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ userId }) => {
             </div>
 
             {/* Links Preview */}
-            <div className={`grid gap-3 ${
-              viewMode === 'desktop' ? 'grid-cols-2' : 'grid-cols-1'
-            }`}>
+            <div className={`grid gap-3 ${viewMode === 'desktop' ? 'grid-cols-2' : 'grid-cols-1'
+              }`}>
               {activeLinks.length === 0 ? (
                 <div className="col-span-full text-center py-8">
                   <p className="text-gray-cool/60 text-sm">No active links</p>
@@ -160,7 +153,7 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ userId }) => {
 
         <div className="mt-4 text-center">
           <p className="text-gray-cool/60 text-xs mb-2">
-            Public link: linkhub.me/{profile.full_name.toLowerCase().replace(/\s+/g, '')}
+            Public link: {window.location.origin}/{profile.full_name.toLowerCase().replace(/\s+/g, '')}
           </p>
           <button className="text-cyan-glow text-xs font-medium hover:underline">
             📋 Copy URL

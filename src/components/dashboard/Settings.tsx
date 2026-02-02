@@ -4,10 +4,10 @@ import { useProfile } from '@/hooks/useProfile';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { QRCodeGenerator } from '@/components/ui/QRCodeGenerator';
-import { 
-  Palette, 
-  Globe, 
-  Shield, 
+import {
+  Palette,
+  Globe,
+  Shield,
   Bell,
   Download,
   Trash2
@@ -25,7 +25,7 @@ export const Settings: React.FC<SettingsProps> = ({ userId }) => {
   const [publicProfile, setPublicProfile] = useState(true);
   const [emailNotifications, setEmailNotifications] = useState(true);
 
-  const profileUrl = `https://linkhub.me/${profile?.full_name?.toLowerCase().replace(/\s+/g, '') || 'user'}`;
+  const profileUrl = `${window.location.origin}/${profile?.full_name?.toLowerCase().replace(/\s+/g, '') || 'user'}`;
 
   const handleSaveSettings = () => {
     toast.success('Settings saved successfully!');
@@ -43,7 +43,7 @@ export const Settings: React.FC<SettingsProps> = ({ userId }) => {
       },
       exportDate: new Date().toISOString(),
     };
-    
+
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -51,7 +51,7 @@ export const Settings: React.FC<SettingsProps> = ({ userId }) => {
     a.download = 'linkhub-data.json';
     a.click();
     URL.revokeObjectURL(url);
-    
+
     toast.success('Data exported successfully!');
   };
 
@@ -84,15 +84,16 @@ export const Settings: React.FC<SettingsProps> = ({ userId }) => {
         )}
       </div>
       <button
+        role="switch"
+        aria-checked={!!enabled}
+        aria-label={label}
         onClick={() => onChange(!enabled)}
-        className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-          enabled ? 'bg-cyan-glow' : 'bg-gray-cool/30'
-        }`}
+        className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${enabled ? 'bg-cyan-glow' : 'bg-gray-cool/30'
+          }`}
       >
         <span
-          className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-            enabled ? 'translate-x-6' : 'translate-x-1'
-          }`}
+          className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${enabled ? 'translate-x-6' : 'translate-x-1'
+            }`}
         />
       </button>
     </div>
@@ -119,16 +120,16 @@ export const Settings: React.FC<SettingsProps> = ({ userId }) => {
           <SettingSection icon={Palette} title="Appearance">
             <div className="space-y-4">
               <div>
-                <label className="text-gray-cool text-sm font-medium mb-2 block">
+                <label htmlFor="theme-select" className="text-gray-cool text-sm font-medium mb-2 block">
                   Theme
                 </label>
-                <select className="input-field h-12 w-full">
+                <select id="theme-select" className="input-field h-12 w-full" aria-label="Select theme">
                   <option value="navy-mysterious">Mysterious Navy (Current)</option>
                   <option value="dark-minimal">Dark Minimal</option>
                   <option value="ocean-depths">Ocean Depths</option>
                 </select>
               </div>
-              
+
               <ToggleSwitch
                 enabled={publicProfile}
                 onChange={setPublicProfile}
@@ -162,7 +163,7 @@ export const Settings: React.FC<SettingsProps> = ({ userId }) => {
                   </Button>
                 </div>
               </div>
-              
+
               <div>
                 <label className="text-gray-cool text-sm font-medium mb-2 block">
                   Custom Domain (Pro Feature)
@@ -189,14 +190,14 @@ export const Settings: React.FC<SettingsProps> = ({ userId }) => {
                 label="Analytics Tracking"
                 description="Collect visitor statistics and insights"
               />
-              
+
               <ToggleSwitch
                 enabled={emailNotifications}
                 onChange={setEmailNotifications}
                 label="Email Notifications"
                 description="Receive updates about your link performance"
               />
-              
+
               <div className="pt-4 border-t border-white/10">
                 <Button
                   variant="outline"
@@ -224,21 +225,21 @@ export const Settings: React.FC<SettingsProps> = ({ userId }) => {
             <div className="space-y-4">
               <ToggleSwitch
                 enabled={true}
-                onChange={() => {}}
+                onChange={() => { }}
                 label="New Visitor Alerts"
                 description="Get notified when someone visits your profile"
               />
-              
+
               <ToggleSwitch
                 enabled={false}
-                onChange={() => {}}
+                onChange={() => { }}
                 label="Weekly Reports"
                 description="Receive weekly analytics summaries"
               />
-              
+
               <ToggleSwitch
                 enabled={true}
-                onChange={() => {}}
+                onChange={() => { }}
                 label="Security Alerts"
                 description="Important security and account updates"
               />
@@ -255,7 +256,7 @@ export const Settings: React.FC<SettingsProps> = ({ userId }) => {
               <Trash2 className="w-5 h-5 text-red-400" />
               <h3 className="text-red-400 text-lg font-bold">Danger Zone</h3>
             </div>
-            
+
             <div className="space-y-4">
               <div>
                 <p className="text-white font-medium mb-2">Delete Account</p>
