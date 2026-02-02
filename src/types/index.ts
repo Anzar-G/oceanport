@@ -55,7 +55,7 @@ export interface ProfileFormData {
 
 export interface User {
   id: string;
-  email: string;
+  email?: string;
   created_at: string;
 }
 

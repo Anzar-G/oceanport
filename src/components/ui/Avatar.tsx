@@ -35,7 +35,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         'rounded-full bg-navy-mid border-2 border-cyan-glow/50 overflow-hidden flex items-center justify-center',
         'ring-4 ring-cyan-glow/20 shadow-glow',
         sizes[size],
-        className
+        className || ''
       )}
     >
       {src ? (

@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useProfile } from '@/hooks/useProfile';
 import { useLinks } from '@/hooks/useLinks';
-import { ProfileCard } from '@/components/landing/ProfileCard';
-import { SocialLinkCard } from '@/components/landing/SocialLinkCard';
 import { Monitor, Smartphone, Eye } from 'lucide-react';
 
 interface LivePreviewProps {
@@ -135,7 +133,7 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ userId }) => {
                   <p className="text-gray-cool/60 text-sm">No active links</p>
                 </div>
               ) : (
-                activeLinks.map((link, index) => (
+                activeLinks.map((link) => (
                   <div
                     key={link.id}
                     className="glass-card rounded-xl p-4 hover:border-cyan-glow/50 transition-all cursor-pointer"

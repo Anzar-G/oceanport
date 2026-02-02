@@ -5,15 +5,12 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { QRCodeGenerator } from '@/components/ui/QRCodeGenerator';
 import { 
-  Settings as SettingsIcon, 
   Palette, 
   Globe, 
   Shield, 
   Bell,
   Download,
-  Trash2,
-  Eye,
-  EyeOff
+  Trash2
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 

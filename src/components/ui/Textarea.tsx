@@ -19,8 +19,8 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           ref={ref}
           className={cn(
             'input-field min-h-[120px] resize-none',
-            error && 'border-red-400 focus:border-red-400 focus:ring-red-400/30',
-            className
+            error ? 'border-red-400 focus:border-red-400 focus:ring-red-400/30' : '',
+            className || ''
           )}
           {...props}
         />

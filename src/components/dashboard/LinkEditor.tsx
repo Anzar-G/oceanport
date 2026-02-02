@@ -46,15 +46,12 @@ export const LinkEditor: React.FC<LinkEditorProps> = ({ userId }) => {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-    watch,
   } = useForm<SocialLinkFormData>({
     resolver: zodResolver(socialLinkSchema),
     defaultValues: {
       is_active: true,
     },
   });
-
-  const selectedPlatform = watch('platform');
 
   const onSubmit = async (data: SocialLinkFormData) => {
     try {
@@ -64,10 +61,7 @@ export const LinkEditor: React.FC<LinkEditorProps> = ({ userId }) => {
         toast.success('Link updated!');
         setEditingId(null);
       } else {
-        const { error } = await addLink({
-          ...data,
-          icon_name: data.platform,
-        });
+        const { error } = await addLink(data);
         if (error) throw error;
         toast.success('Link added!');
       }

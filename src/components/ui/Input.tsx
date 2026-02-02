@@ -19,8 +19,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           className={cn(
             'input-field h-14',
-            error && 'border-red-400 focus:border-red-400 focus:ring-red-400/30',
-            className
+            error ? 'border-red-400 focus:border-red-400 focus:ring-red-400/30' : '',
+            className || ''
           )}
           {...props}
         />

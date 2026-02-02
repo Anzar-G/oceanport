@@ -35,7 +35,11 @@ export const useLinks = (userId?: string) => {
     try {
       const { data, error } = await supabase
         .from('social_links')
-        .insert([{ ...linkData, user_id: userId }])
+        .insert([{ 
+          ...linkData, 
+          user_id: userId,
+          icon_name: linkData.platform 
+        }])
         .select()
         .single();
 

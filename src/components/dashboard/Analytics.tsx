@@ -186,12 +186,12 @@ export const Analytics: React.FC = () => {
             </div>
           </div>
           <div className="space-y-3">
-            {mockData.countries.map((country, index) => (
+            {mockData.countries.map((country) => (
               <div key={country.name} className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div 
                     className="w-3 h-3 rounded-full bg-cyan-glow"
-                    style={{ opacity: 1 - (index * 0.15) }}
+                    style={{ opacity: 1 - (mockData.countries.indexOf(country) * 0.15) }}
                   />
                   <span className="text-white">{country.name}</span>
                 </div>

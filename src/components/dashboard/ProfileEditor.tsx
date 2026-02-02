@@ -133,7 +133,10 @@ export const ProfileEditor: React.FC<ProfileEditorProps> = ({ userId }) => {
               <p className="text-gray-cool text-sm">JPG, PNG or WEBP. Max 2MB.</p>
             </div>
           </div>
-          <Button variant="outline" onClick={() => document.querySelector('input[type="file"]')?.click()}>
+          <Button variant="outline" onClick={() => {
+            const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+            fileInput?.click();
+          }}>
             Upload New
           </Button>
         </div>
