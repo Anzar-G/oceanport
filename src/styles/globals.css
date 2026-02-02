@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: theme('colors.white/10');
+  }
+  
+  body {
+    @apply bg-navy-base text-white font-display;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background: linear-gradient(90deg, #1B2B44 0%, #00D9FF 50%, #7B68EE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glass-card {
+    @apply bg-glass backdrop-blur-xl border border-white/10;
+  }
+  
+  .glass-card:hover {
+    @apply border-cyan-glow/50 shadow-glow;
+    transform: translateY(-4px);
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-teal-accent to-cyan-glow text-navy-base font-semibold px-6 py-3 rounded-xl;
+    @apply hover:brightness-110 hover:scale-105 active:scale-95 transition-all duration-200;
+    @apply shadow-[0_4px_20px_rgba(29,211,175,0.3)] hover:shadow-[0_4px_30px_rgba(29,211,175,0.6)];
+  }
+  
+  .btn-secondary {
+    @apply bg-white/10 text-white border border-white/20 font-semibold px-6 py-3 rounded-xl;
+    @apply hover:bg-white/20 hover:scale-105 active:scale-95 transition-all duration-200;
+  }
+  
+  .input-field {
+    @apply bg-navy-mid/80 border border-white/10 rounded-input px-4 py-3 text-white;
+    @apply focus:outline-none focus:border-cyan-glow focus:ring-1 focus:ring-cyan-glow/30;
+    @apply placeholder:text-gray-cool/50 transition-all duration-200;
+  }
+  
+  .floating-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .noise-texture {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
+  }
+}

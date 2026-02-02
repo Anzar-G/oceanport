@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Professional Link Hub | Mysterious Navy Depths</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1dd3af",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#0A1628", // Deep Navy
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>.mysterious-gradient {
+    background: linear-gradient(180deg, #0A1628 0%, #050a12 50%, #000 100%)
+    }
+.noise-texture {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBgfyEj8IO9OzIjez8fzIQzVnRArPhL_Bnr3lqQkRM0Ha7YI3u3tP9jdDv1vyEO4jmWx1NgyMdcqeycC32XIOSLTl6QB3VXBiB7ekZY9f_ALXHkELeIqvcChL4z68lLDPKO5FQ_chkQQF-MWwe5jyyBT1QD4jtg8exA16USWSo_XNE2rNcELJziWq5121ogICDHqDfEgNpoAxagGeSUzJs9dhf5XzSE55N3oBZolRBrBRzmJFVESTATKE-kKEHDjqGoIQuORKL6J-s);
+    opacity: 0.15;
+    pointer-events: none
+    }
+.text-gradient-navy-cyan-purple {
+    background: linear-gradient(90deg, #1e3a8a 0%, #1dd3af 50%, #9333ea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+    }
+.glass-card {
+    background: rgba(28, 38, 36, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease
+    }
+.glass-card:hover {
+    border-color: rgba(29, 211, 175, 0.5);
+    box-shadow: 0 0 20px rgba(29, 211, 175, 0.15);
+    transform: translatey(-4px)
+    }
+.bioluminescent-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #1dd3af;
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0.3
+    }
+.glow-ring {
+    box-shadow: 0 0 0 4px rgba(29, 211, 175, 0.2), 0 0 20px 8px rgba(29, 211, 175, 0.1)
+    }</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary/30 min-h-screen relative overflow-x-hidden">
+<!-- Background Layers -->
+<div class="fixed inset-0 mysterious-gradient -z-20"></div>
+<div class="fixed inset-0 noise-texture -z-10"></div>
+<!-- Floating Particles Simulation -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+<div class="bioluminescent-dot top-1/4 left-1/4"></div>
+<div class="bioluminescent-dot top-1/2 left-3/4"></div>
+<div class="bioluminescent-dot top-3/4 left-1/3"></div>
+<div class="bioluminescent-dot top-1/10 left-2/3"></div>
+<div class="bioluminescent-dot top-2/3 left-1/10"></div>
+</div>
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Navigation -->
+<div class="w-full flex justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1 px-4">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 px-6 py-3 glass-card rounded-xl">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined">hub</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Link Hub</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8 items-center">
+<div class="hidden md:flex items-center gap-9">
+<a class="text-white/70 hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Profile</a>
+<a class="text-white/70 hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Projects</a>
+<a class="text-white/70 hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Inquiry</a>
+</div>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-[#0A1628] text-sm font-bold leading-normal tracking-[0.015em] hover:brightness-110 transition-all">
+<span class="truncate">Get in Touch</span>
+</button>
+</div>
+</header>
+</div>
+</div>
+<!-- Profile Header -->
+<div class="flex flex-1 justify-center py-12">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<div class="flex p-4 @container">
+<div class="flex w-full flex-col gap-6 items-center">
+<div class="flex gap-6 flex-col items-center">
+<!-- 150px Avatar with Cyan Glow Ring -->
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-[150px] w-[150px] glow-ring border-2 border-primary/40 relative overflow-hidden" data-alt="Professional portrait with a dark background and subtle cyan rim lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKH_rubPcVzO3VWmvi5VQkA2fYd4K1NVma4gW9xR2vjvH-LFwhmMCHDdx80rD3x10FrN8xYeNY3g5xdkILpBxyzlgT_FQi4jFhCEmYn9qvAbXAoj0zwSM7i0KtHAl3D_wUE2INaStw8VG4eTSAYpdwXAwhzuuYUO0MAXE_T5jSIxXCDquaqYnG9Fzgy8nKoBfHMkvvPbO8JaImqYM92gRlRwll4MmGpt2U2jl5by5WE3B5CqXp1IS2ZVbGXGOape11OtPK_T39RMs");'>
+</div>
+<div class="flex flex-col items-center justify-center space-y-2">
+<h1 class="text-white text-5xl font-black leading-tight tracking-[-0.03em] text-center text-gradient-navy-cyan-purple">
+                                        Julian Sterling
+                                    </h1>
+<p class="text-primary/80 text-lg font-medium tracking-wide uppercase text-center">Software Architect &amp; Creative Director</p>
+<p class="text-white/50 text-base font-normal leading-relaxed text-center max-w-md">
+                                        Designing resilient systems and immersive digital experiences in the depths of modern technology.
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Link Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 mt-8">
+<!-- LinkedIn -->
+<a class="flex flex-col gap-3 rounded-xl glass-card p-6 group hover:border-[#0077b5]/50" href="#">
+<div class="text-primary group-hover:text-[#0077b5] transition-colors">
+<span class="material-symbols-outlined" style="font-size: 32px;">share</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-white text-lg font-bold leading-tight">LinkedIn</h2>
+<p class="text-white/50 text-sm font-normal leading-normal">Professional network &amp; insights</p>
+</div>
+</a>
+<!-- GitHub -->
+<a class="flex flex-col gap-3 rounded-xl glass-card p-6 group hover:border-white/50" href="#">
+<div class="text-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined" style="font-size: 32px;">terminal</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-white text-lg font-bold leading-tight">GitHub</h2>
+<p class="text-white/50 text-sm font-normal leading-normal">Open source contributions</p>
+</div>
+</a>
+<!-- Portfolio -->
+<a class="flex flex-col gap-3 rounded-xl glass-card p-6 group hover:border-primary/50" href="#">
+<div class="text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-size: 32px;">auto_awesome</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-white text-lg font-bold leading-tight">Portfolio</h2>
+<p class="text-white/50 text-sm font-normal leading-normal">Selected works and case studies</p>
+</div>
+</a>
+<!-- WhatsApp -->
+<a class="flex flex-col gap-3 rounded-xl glass-card p-6 group hover:border-[#25D366]/50" href="#">
+<div class="text-primary group-hover:text-[#25D366] transition-colors">
+<span class="material-symbols-outlined" style="font-size: 32px;">chat</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-white text-lg font-bold leading-tight">WhatsApp</h2>
+<p class="text-white/50 text-sm font-normal leading-normal">Direct encrypted messaging</p>
+</div>
+</a>
+<!-- Email -->
+<a class="flex flex-col gap-3 rounded-xl glass-card p-6 group hover:border-primary/50" href="#">
+<div class="text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 32px;">mail</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-white text-lg font-bold leading-tight">Email Me</h2>
+<p class="text-white/50 text-sm font-normal leading-normal">Inquiries &amp; collaborations</p>
+</div>
+</a>
+<!-- Instagram -->
+<a class="flex flex-col gap-3 rounded-xl glass-card p-6 group hover:border-[#E1306C]/50" href="#">
+<div class="text-primary group-hover:text-[#E1306C] transition-colors">
+<span class="material-symbols-outlined" style="font-size: 32px;">photo_camera</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-white text-lg font-bold leading-tight">Instagram</h2>
+<p class="text-white/50 text-sm font-normal leading-normal">Creative process &amp; visuals</p>
+</div>
+</a>
+</div>
+<!-- CTA Section -->
+<div class="mt-12 px-4">
+<div class="glass-card rounded-2xl p-8 @container overflow-hidden relative">
+<!-- Background accent for CTA -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>
+<div class="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+<div class="flex flex-col gap-2 text-left max-w-xl">
+<h2 class="text-white text-3xl font-bold tracking-tight">Let's build something extraordinary.</h2>
+<p class="text-white/60 text-base font-normal leading-relaxed">
+                                        Currently accepting new projects and consulting opportunities. Reach out for a free discovery session.
+                                    </p>
+</div>
+<div class="flex gap-4 w-full md:w-auto">
+<button class="flex-1 md:flex-none min-w-[160px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-primary text-[#0A1628] text-base font-bold transition-all hover:scale-105 active:scale-95">
+                                        Schedule Call
+                                    </button>
+<button class="flex-1 md:flex-none min-w-[160px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-white/10 text-white text-base font-bold border border-white/10 hover:bg-white/20 transition-all">
+                                        Download CV
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-20 py-10 flex flex-col items-center gap-4 text-white/30 text-sm">
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Analytics</a>
+</div>
+<p>© 2024 Julian Sterling. Built for the deep web.</p>
+<div class="flex items-center gap-1 text-[10px] tracking-[0.2em] uppercase opacity-50">
+<span class="material-symbols-outlined text-[12px]">security</span>
+                            Encrypted Connection Verified
+                        </div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</body></html>

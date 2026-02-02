@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Professional Dashboard Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Syne:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1dd3af",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#0a111a", // Deep Navy Depths
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "syne": ["Syne", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(28, 38, 36, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(29, 211, 175, 0.2);
+            box-shadow: 0 0 20px rgba(29, 211, 175, 0.05);
+        }
+        .navy-gradient {
+            background: radial-gradient(circle at 50% 50%, #11211e 0%, #0a111a 100%);
+        }
+        .spotlight {
+            background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(29, 211, 175, 0.05), transparent 40%);
+        }
+        .floating-particle {
+            position: absolute;
+            background: rgba(29, 211, 175, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-white overflow-hidden min-h-screen">
+<!-- Animated Background Layer -->
+<div class="fixed inset-0 navy-gradient -z-10">
+<div class="spotlight absolute inset-0"></div>
+<!-- Decorative geometric particles -->
+<div class="floating-particle w-1 h-1 top-1/4 left-1/4"></div>
+<div class="floating-particle w-2 h-2 top-3/4 left-1/3 opacity-50"></div>
+<div class="floating-particle w-1.5 h-1.5 top-1/2 right-1/4"></div>
+<div class="absolute top-20 right-20 w-32 h-32 border border-primary/5 rounded-full"></div>
+<div class="absolute bottom-40 left-10 w-64 h-64 border border-primary/10 rounded-full"></div>
+</div>
+<!-- Layout Container -->
+<div class="relative flex h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Nav (Modified from Template) -->
+<header class="flex items-center justify-between whitespace-nowrap px-10 py-6">
+<div class="flex items-center gap-4 text-white">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-white text-xl font-bold leading-tight tracking-tight font-syne">PRISM</h2>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-5 border border-primary/30 text-primary text-sm font-bold hover:bg-primary/10 transition-all">
+<span class="truncate">Back to Profile</span>
+</button>
+</header>
+<!-- Main Content: Centered Login Card -->
+<main class="flex-1 flex items-center justify-center px-4">
+<div class="glass-card w-full max-w-[440px] rounded-xl p-8 md:p-12 flex flex-col items-center">
+<!-- Logo & Header -->
+<div class="mb-8 text-center">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto border border-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl">fingerprint</span>
+</div>
+<h1 class="text-3xl font-syne text-white tracking-tight mb-2">Dashboard Login</h1>
+<p class="text-[#9eb7b2] text-sm">Secure Professional Access</p>
+</div>
+<!-- Login Form -->
+<form class="w-full space-y-5">
+<!-- Email Field -->
+<div class="flex flex-col w-full">
+<p class="text-white text-sm font-medium leading-normal pb-2 ml-1">Professional Email</p>
+<input class="form-input flex w-full rounded-xl text-white focus:outline-0 focus:ring-1 focus:ring-primary border border-[#3d524e] bg-[#1c2624]/50 focus:border-primary h-14 placeholder:text-[#9eb7b2]/50 p-[15px] text-base font-normal transition-all" placeholder="name@company.com" type="email"/>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col w-full">
+<p class="text-white text-sm font-medium leading-normal pb-2 ml-1">Access Key</p>
+<div class="flex w-full items-stretch rounded-xl overflow-hidden">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-l-xl text-white focus:outline-0 focus:ring-0 border border-[#3d524e] bg-[#1c2624]/50 focus:border-primary h-14 placeholder:text-[#9eb7b2]/50 p-[15px] border-r-0 pr-2 text-base font-normal transition-all" placeholder="••••••••" type="password"/>
+<div class="text-[#9eb7b2] flex border border-[#3d524e] bg-[#1c2624]/50 items-center justify-center pr-[15px] rounded-r-xl border-l-0 cursor-pointer hover:text-primary">
+<span class="material-symbols-outlined text-[24px]">visibility</span>
+</div>
+</div>
+</div>
+<!-- Actions: Remember Me & Forgot Password -->
+<div class="flex items-center justify-between px-1 py-1">
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="flex size-5 items-center justify-center relative">
+<input class="peer h-5 w-5 rounded border-[#3d524e] border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0 transition-all cursor-pointer" type="checkbox"/>
+<span class="material-symbols-outlined absolute text-[14px] text-background-dark opacity-0 peer-checked:opacity-100 pointer-events-none font-bold">check</span>
+</div>
+<p class="text-[#9eb7b2] text-sm font-normal group-hover:text-white transition-colors">Remember device</p>
+</label>
+<a class="text-primary text-sm font-medium hover:underline decoration-primary/30" href="#">Forgot key?</a>
+</div>
+<!-- Login Button -->
+<button class="w-full flex items-center justify-center gap-2 overflow-hidden rounded-xl h-14 bg-gradient-to-r from-primary to-[#16a38a] text-[#0a111a] text-base font-bold tracking-wide shadow-[0_4px_20px_rgba(29,211,175,0.3)] hover:shadow-[0_4px_25px_rgba(29,211,175,0.5)] hover:scale-[1.01] active:scale-[0.98] transition-all" type="submit">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+<span>Authorize Session</span>
+</button>
+</form>
+<!-- Footer Link -->
+<div class="mt-8 text-center">
+<p class="text-[#9eb7b2] text-xs">
+                        Don't have access? <a class="text-primary font-semibold hover:underline" href="#">Request Entry</a>
+</p>
+</div>
+</div>
+</main>
+<!-- Page Footer -->
+<footer class="p-10 text-center">
+<p class="text-[#9eb7b2]/40 text-[10px] uppercase tracking-[0.2em]">Encrypted Session • TLS 1.3 • PRISM Security</p>
+</footer>
+</div>
+<!-- Background Decoration Image -->
+<div class="fixed bottom-[-10%] right-[-5%] opacity-10 pointer-events-none rotate-12">
+<div class="w-[500px] h-[500px] bg-center bg-no-repeat bg-contain" data-alt="Abstract geometric wireframe globe pattern in dark teal" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAuMKmTEmrmDUfJuP1kLA_mOzffPlYEaHtFfFOHu2RGJGDXZdMzzk1r3srOZlcHeuxISVgA17elJGXmeyDsymrP4qOXuUPyjl93nnAyA__e9xTPie5osXfB72De21FHjBGFscOP9XBkxnk4PuI23A0niYK7rnZltWq7glAeC1BJYix8Dfxc4c7ZsEk9Ub_6N8L9KSVCIDlrQXnvtxvqL4tyduA0g6gqgPDUXDIdnsPpLUV3I8aMPqS1yMLCxpY-uJleWHQTB425o0E");'>
+</div>
+</div>
+<script>
+        // Simple spotlight effect tracker
+        document.addEventListener('mousemove', e => {
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            document.documentElement.style.setProperty('--x', x + '%');
+            document.documentElement.style.setProperty('--y', y + '%');
+        });
+    </script>
+</body></html>
