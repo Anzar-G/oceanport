@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Eye, 
-  MousePointer, 
-  Users, 
+import {
+  Eye,
+  MousePointer,
+  Users,
   TrendingUp,
   Calendar,
   Globe
@@ -52,9 +52,8 @@ export const Analytics: React.FC = () => {
           <p className="text-gray-cool text-sm font-medium">{title}</p>
           <p className="text-white text-2xl font-bold mt-1">{value}</p>
           {change && (
-            <p className={`text-sm mt-1 flex items-center gap-1 ${
-              change > 0 ? 'text-green-400' : 'text-red-400'
-            }`}>
+            <p className={`text-sm mt-1 flex items-center gap-1 ${change > 0 ? 'text-green-400' : 'text-red-400'
+              }`}>
               <TrendingUp className="w-3 h-3" />
               {change > 0 ? '+' : ''}{change}%
             </p>
@@ -147,10 +146,10 @@ export const Analytics: React.FC = () => {
             <h3 className="text-white text-lg font-bold">Top Performing Links</h3>
           </div>
           <div className="space-y-4">
-            {mockData.topLinks.map((link, index) => (
+            {mockData.topLinks.map((link) => (
               <div key={link.name} className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div 
+                  <div
                     className="w-3 h-3 rounded-full"
                     style={{ backgroundColor: link.color }}
                   />
@@ -189,7 +188,7 @@ export const Analytics: React.FC = () => {
             {mockData.countries.map((country) => (
               <div key={country.name} className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div 
+                  <div
                     className="w-3 h-3 rounded-full bg-cyan-glow"
                     style={{ opacity: 1 - (mockData.countries.indexOf(country) * 0.15) }}
                   />
